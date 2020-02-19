@@ -21,7 +21,6 @@ class TestPatchDataset(unittest.TestCase):
     def test_shape(self):
         test_dataset = ['vwxyz', 'hello', 'world']
         n_per_image = len(test_dataset[0])
-        n_per_image = 5
         result = PatchDataset(dataset=test_dataset, patch_func=lambda x: x, samples_per_image=n_per_image)
 
         output = []

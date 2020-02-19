@@ -25,7 +25,7 @@ class PatchDataset(Dataset):
         """
         Args:
             dataset (torch dataset): an image dataset to extract patches from.
-            patch_func (callable): converts image dataset into multiple patches.
+            patch_func (callable): converts image dataset into a sequence of patches.
             samples_per_image (int): `patch_func` should return a sequence of `samples_per_image` elements.
             transform (callable): transform applied to each patch.
         """
