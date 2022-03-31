@@ -49,7 +49,7 @@ jobs:
       run: |
         conda activate monai
         # this `cpuonly` and -c conda-forge is needed to reduce the paging file size on a github instance
-        conda install pytorch>=1.6 torchvision torchaudio cpuonly -c pytorch -c conda-forge
+        conda install pytorch torchvision torchaudio cpuonly -c pytorch -c conda-forge
         conda deactivate
     - name: Test env(CPU ${{ runner.os }})
       shell: bash -l {0}
