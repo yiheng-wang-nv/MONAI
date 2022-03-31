@@ -19,7 +19,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        os: [ubuntu-latest]
+        os: [windows-latest, macOS-latest, ubuntu-latest]
         python-version: ["3.7"]
     runs-on: ${{ matrix.os }}
     env:
@@ -55,5 +55,5 @@ jobs:
       shell: bash -l {0}
       run: |
         conda activate monai
-        python -m tests.test_matshow3d
+        $(pwd)/runtests.sh --build --unittests
         conda deactivate
