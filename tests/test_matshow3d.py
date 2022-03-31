@@ -67,7 +67,7 @@ class TestMatshow3d(unittest.TestCase):
             fig.savefig(tempimg)
             expected_img = np.asarray(Image.open(f"{testing_dir}/matshow3d_patch_test.png").convert("RGB"))
             act_img = np.asarray(Image.open(f"{tempdir}/matshow3d_patch_test.png").convert("RGB"))
-            print(expected_img.shape, expected_shape.mean())
+            print(expected_img.shape, expected_img.mean())
             print(act_img.shape, act_img.mean())
             comp = compare_images(f"{testing_dir}/matshow3d_patch_test.png", tempimg, 5e-2, in_decorator=True)
             if comp:
