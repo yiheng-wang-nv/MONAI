@@ -55,5 +55,5 @@ jobs:
       shell: bash -l {0}
       run: |
         conda activate monai
-        python -m tests.test_matshow3d.py
+        python -m tests.test_matshow3d
         conda deactivate
