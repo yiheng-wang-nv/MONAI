@@ -48,7 +48,6 @@ jobs:
       shell: bash -l {0}
       run: |
         conda activate monai
-        conda uninstall pytorch
         # this `cpuonly` and -c conda-forge is needed to reduce the paging file size on a github instance
         conda install pytorch torchvision torchaudio cpuonly -c pytorch
         conda deactivate
