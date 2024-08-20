@@ -716,13 +716,8 @@ class AutoencoderKL(nn.Module):
             new_state_dict[f"{block}.attn.to_k.bias"] = old_state_dict.pop(f"{block}.to_k.bias")
             new_state_dict[f"{block}.attn.to_v.bias"] = old_state_dict.pop(f"{block}.to_v.bias")
 
-            # old version did not have a projection so set these to the identity
-            new_state_dict[f"{block}.attn.out_proj.weight"] = torch.eye(
-                new_state_dict[f"{block}.attn.out_proj.weight"].shape[0]
-            )
-            new_state_dict[f"{block}.attn.out_proj.bias"] = torch.zeros(
-                new_state_dict[f"{block}.attn.out_proj.bias"].shape
-            )
+            new_state_dict[f"{block}.attn.out_proj.weight"] = old_state_dict.pop(f"{block}.proj_attn.weight")
+            new_state_dict[f"{block}.attn.out_proj.bias"] = old_state_dict.pop(f"{block}.proj_attn.bias")
 
         # fix the upsample conv blocks which were renamed postconv
         for k in new_state_dict:
